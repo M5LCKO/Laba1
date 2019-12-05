@@ -11,7 +11,7 @@
     <Grid Margin="0,0,3.8,0">
         <Button Content="Расчет" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_1"/>
         <Label Content="Количество элементов" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbN"  HorizontalAlignment="Left" Height="20" Margin="10,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" />
+        <TextBox x:Name="tbN"  HorizontalAlignment="Left" Height="20" Margin="10,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" MaxLength="3" />
         <Button Content="Расчет2" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_2"/>
         <Button Content="Сохранить" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_3"/>
         <Button Content="Выход" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click"/>

@@ -10,9 +10,9 @@
     <Grid>
         <Label Content="Ведите число которое меньше либо равно " HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Width="246"/>
         <Button Content="Далее" HorizontalAlignment="Left" Margin="190,123,0,0" VerticalAlignment="Top" Width="94" Height="25" Click="Button_Click"/>
-        <TextBox x:Name="number"  HorizontalAlignment="Left" Height="20" Margin="73,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" />
+        <TextBox x:Name="number"  HorizontalAlignment="Left" Height="20" Margin="73,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" MaxLength="3" />
 
-        <Label Content="колличеству элементов массива" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="198"/>
+        <Label Content="количеству элементов массива" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="198"/>
 
     </Grid>
 </Window>
