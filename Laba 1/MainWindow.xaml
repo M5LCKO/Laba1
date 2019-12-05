@@ -5,24 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:c="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:Laba_1"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600" MaxHeight="450" MaxWidth="600" MinHeight="450" MinWidth="600">
-    <Grid Margin="0,0,4,0">
-        <Button Content="Расчет" HorizontalAlignment="Left" Margin="49,91,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_1"/>
-        <Label Content="Количество элементов" HorizontalAlignment="Left" Margin="49,35,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbN"  HorizontalAlignment="Left" Height="20" Margin="49,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" />
-        <Button Content="Расчет2" HorizontalAlignment="Left" Margin="49,121,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_2"/>
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="49,341,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_3"/>
-        <Button Content="Выход" HorizontalAlignment="Left" Margin="49,371,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click"/>
-        <Label Content="Результат" HorizontalAlignment="Left" Margin="322,35,0,0" VerticalAlignment="Top" Height="26" Width="129"/>
-        <ListBox SelectionMode="Multiple" HorizontalAlignment="Left" x:Name="lbMain" Height="322" Margin="207,66,0,0" VerticalAlignment="Top" Width="330"/>
-        <Button Content="Расчет 3" HorizontalAlignment="Left" Margin="49,151,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_4"/>
-        <Button Content="Расчет 4" HorizontalAlignment="Left" Margin="49,181,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_5"/>
-        <Button Content="Расчет 5" HorizontalAlignment="Left" Margin="49,211,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_6"/>
-        <Button Content="Расчет 6" HorizontalAlignment="Left" Margin="49,241,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_7"/>
-        <Button Content="Расчет 7" HorizontalAlignment="Left" Margin="49,271,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_8"/>
-        <Button Content="Расчет 8" HorizontalAlignment="Left" Margin="49,301,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_9"/>
-        <Button Content="Об авторе" HorizontalAlignment="Left" Margin="515,0,-0.4,0" VerticalAlignment="Top" Width="75" BorderBrush="White" Foreground="White" Background="White" Click="Button_Click_10"/>
-
+        Title="MainWindow" Height="450" Width="800" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="600">
+    <Grid Margin="0,0,3.8,0">
+        <Button Content="Расчет" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_1"/>
+        <Label Content="Количество элементов" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbN"  HorizontalAlignment="Left" Height="20" Margin="10,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" />
+        <Button Content="Расчет2" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_2"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click_3"/>
+        <Button Content="Выход" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click"/>
+        <Label Content="Результат" HorizontalAlignment="Left" Margin="190,40,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
+        <ListBox SelectionMode="Multiple" HorizontalAlignment="Left" x:Name="lbMain" Height="322" Margin="190,74,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button Content="Расчет 3" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_4"/>
+        <Button Content="Расчет 4" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_5"/>
+        <Button Content="Расчет 5" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_6"/>
+        <Button Content="Расчет 6" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_7"/>
+        <Button Content="Расчет 7" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_8"/>
+        <Button Content="Расчет 8" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_9"/>
+        <Button Content="Об авторе" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" BorderBrush="White" Foreground="White" Background="White" Click="Button_Click_10"/>
+        <chartingToolkit:Chart Name="ColumnChart" HorizontalAlignment="Left" Margin="303,10,0,0" VerticalAlignment="Top" Height="204" Width="473">
+            <chartingToolkit:ColumnSeries DependentValuePath="Value" ItemsSource="{Binding}" HorizontalAlignment="Left" Width="341" Title="Массив" Margin="0,0,0,1.8" RenderTransformOrigin="0,0"/>
+        </chartingToolkit:Chart>
+        <chartingToolkit:Chart Name="ColumnChart1" HorizontalAlignment="Left" Margin="303,216,0,0" VerticalAlignment="Top" Height="204" Width="473">
+            <chartingToolkit:ColumnSeries DependentValuePath="Value" ItemsSource="{Binding}" HorizontalAlignment="Left" Width="343" Title="Массив" Margin="0,0,-0.6,-1.2" RenderTransformOrigin="0,0"/>
+        </chartingToolkit:Chart>
     </Grid>
 </Window>

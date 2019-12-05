@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
+using System.Collections.ObjectModel;
 
 
 namespace Laba_1
@@ -26,12 +27,18 @@ namespace Laba_1
         public MainWindow()
         {
             InitializeComponent();
+            ColumnChart.DataContext = valueList;
+            ColumnChart1.DataContext = valueList1;
         }
+        ObservableCollection<KeyValuePair<string, int>> valueList = new ObservableCollection<KeyValuePair<string, int>>();
+        ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
         void Gen(ArrayList myAL)
         {
             
             try
-            { 
+            {
+                valueList.Clear();
+                valueList1.Clear();
                     int itemCount = Convert.ToInt32(tbN.Text);
                
                 if (itemCount > 0)
@@ -46,6 +53,11 @@ namespace Laba_1
                         number = -100 + rnd1.Next(200);
                         myAL.Add(number);
                         lbMain.Items.Add(number);
+                    }
+                    for (index = 0; index < itemCount; index++)
+                    {
+                        int num = (int)myAL[index];
+                        valueList.Add(new KeyValuePair<string,int>("",num));
                     }
                 }
                 else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
@@ -74,11 +86,17 @@ namespace Laba_1
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
+                int itemCount = Convert.ToInt32(tbN.Text);
                 myAL.Sort();
                 lbMain.Items.Add("Отсортированный массив");
                 foreach (int elem in myAL)
                 {
                     lbMain.Items.Add(elem);
+                }
+                for (int i = 0; i < itemCount; i++)
+                {
+                    int num = (int)myAL[i];
+                    valueList1.Add(new KeyValuePair<string, int>("", num));
                 }
             }
         }
@@ -112,8 +130,11 @@ namespace Laba_1
                 int itemCount = Convert.ToInt32(tbN.Text);
                 int count = 0;
                 for (int i = 1; i < itemCount - 1; i++)
+                {
                     if (((int)myAL[i] > (int)myAL[i - 1]) && ((int)myAL[i] > (int)myAL[i + 1]))
                         count++;
+                }
+                
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
             }
         }
@@ -234,9 +255,6 @@ namespace Laba_1
             a.ShowDialog();
         }
 
-        private void TbN_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+     
     }
 }
