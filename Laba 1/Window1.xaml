@@ -12,6 +12,6 @@
         <TextBox x:Name="num"  HorizontalAlignment="Left" Height="20" Margin="49,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" />
         
         <Button Content="Далее" HorizontalAlignment="Left" Margin="112,112,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click"/>
-
+        <!--коментарий-->
     </Grid>
 </Window>
