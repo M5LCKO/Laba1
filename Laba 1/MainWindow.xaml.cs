@@ -306,7 +306,28 @@ namespace Laba_1
 
         private void Button_Click_14(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Возникли технические шоколадки =/ \n мы пытаемся их решить)", "Не работает(", MessageBoxButton.OK, MessageBoxImage.Error);
+            ArrayList myAL = new ArrayList();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                Random a = new Random();
+                myAL.Sort();
+                if (1 + a.Next(2) == 2)
+                {
+                    myAL.Reverse();
+                }
+                lbMain.Items.Add("Отсортированный массив");
+                foreach (int elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                }
+                for (int i = 0; i < itemCount; i++)
+                {
+                    int num = (int)myAL[i];
+                    valueList1.Add(new KeyValuePair<string, int>("", num));
+                }
+            }
         }
 
         private void Button_Click_15(object sender, RoutedEventArgs e)
