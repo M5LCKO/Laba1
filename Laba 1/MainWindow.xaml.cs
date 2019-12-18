@@ -402,13 +402,51 @@ namespace Laba_1
                 {
                     valueList1.Add(new KeyValuePair<string, double>("", elem));
                 }
-                //for (int l = 0; l < itemCount; l++)
-                //{
-                //    double num = (double)myAL[l];
-                //    valueList1.Add(new KeyValuePair<string, double>("", num));
-                //}
-
             }
+        }
+
+        private void Button_Click_18(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                double count = 0;
+                double count1 = 0;
+                for (int i = 0; i < itemCount; i++)
+                {
+                    count += (int)myAL[i];
+                }
+                count /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    count1 += Math.Abs(count - (int)myAL[k]);
+                }
+                count1 /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
+                Window1 l = new Window1();
+                l.ShowDialog();
+                for (int k = 0; k < itemCount; k++)
+                {
+                    myAL[k] = Convert.ToDouble(myAL[k]);
+                    if (Math.Abs(count - (double)myAL[k]) > count1 * l.k / 100)
+                        myAL[k] = count;
+                }
+                foreach (double elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                }
+                valueList1.Clear();
+                foreach (double elem in myAL)
+                {
+                    valueList1.Add(new KeyValuePair<string, double>("", elem));
+                }
+            }
+
         }
     }
 }
