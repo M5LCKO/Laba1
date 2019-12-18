@@ -77,12 +77,16 @@ namespace Laba_1
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -124,6 +128,8 @@ namespace Laba_1
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -142,6 +148,8 @@ namespace Laba_1
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -162,6 +170,8 @@ namespace Laba_1
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0") && (tbN.Text != "1"))
             {
@@ -183,6 +193,8 @@ namespace Laba_1
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -205,6 +217,8 @@ namespace Laba_1
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -233,6 +247,8 @@ namespace Laba_1
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -258,6 +274,8 @@ namespace Laba_1
         private void Button_Click_11(object sender, RoutedEventArgs e)
         {
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -280,6 +298,8 @@ namespace Laba_1
         private void Button_Click_13(object sender, RoutedEventArgs e)
         {
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -307,6 +327,8 @@ namespace Laba_1
         private void Button_Click_14(object sender, RoutedEventArgs e)
         {
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
@@ -394,6 +416,8 @@ namespace Laba_1
         private void Button_Click_15(object sender, RoutedEventArgs e)
         {
             ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
             Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
