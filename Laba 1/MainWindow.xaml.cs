@@ -255,6 +255,26 @@ namespace Laba_1
             a.ShowDialog();
         }
 
-     
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                int count = 0;
+                for (int i = 1; i < itemCount-1; i++)
+                {
+                    if (((int)myAL[i] > (int)myAL[i - 1]) && ((int)myAL[i] > (int)myAL[i + 1]))
+                        count++;
+                }
+                if (((int)myAL[0] > (int)myAL[itemCount-1]) && ((int)myAL[0] > (int)myAL[1]))
+                    count++;
+                if (((int)myAL[itemCount-1] > (int)myAL[itemCount - 2]) && ((int)myAL[itemCount-1] > (int)myAL[0]))
+                    count++;
+                lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
+              
+            }
+        }
     }
 }
