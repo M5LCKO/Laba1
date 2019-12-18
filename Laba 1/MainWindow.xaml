@@ -32,7 +32,7 @@
         </chartingToolkit:Chart>
         <Button Content="2" HorizontalAlignment="Left" Margin="80,78,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_11"/>
         <Button Content="3" HorizontalAlignment="Left" Margin="80,108,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False" />
-        <Button Content="4" HorizontalAlignment="Left" Margin="80,138,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="80,138,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_12"/>
         <Button Content="5" HorizontalAlignment="Left" Margin="80,168,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
         <Button Content="6" HorizontalAlignment="Left" Margin="80,198,0,0" VerticalAlignment="Top" Width="50" IsEnabled="False" Height="25"/>
         <Button Content="7" HorizontalAlignment="Left" Margin="80,228,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>

@@ -276,5 +276,10 @@ namespace Laba_1
               //k
             }
         }
+
+        private void Button_Click_13(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
