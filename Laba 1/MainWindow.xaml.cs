@@ -273,7 +273,7 @@ namespace Laba_1
                 if (((int)myAL[itemCount-1] > (int)myAL[itemCount - 2]) && ((int)myAL[itemCount-1] > (int)myAL[0]))
                     count++;
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
-              
+              //k
             }
         }
     }
