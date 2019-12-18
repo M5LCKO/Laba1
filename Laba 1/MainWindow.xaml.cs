@@ -330,9 +330,101 @@ namespace Laba_1
             }
         }
 
+        //метод для слияния массивов
+        static void Merge(int[] array, int lowIndex, int middleIndex, int highIndex)
+        {
+            var left = lowIndex;
+            var right = middleIndex + 1;
+            var tempArray = new int[highIndex - lowIndex + 1];
+            var index = 0;
+
+            while ((left <= middleIndex) && (right <= highIndex))
+            {
+                if (array[left] < array[right])
+                {
+                    tempArray[index] = array[left];
+                    left++;
+                }
+                else
+                {
+                    tempArray[index] = array[right];
+                    right++;
+                }
+
+                index++;
+            }
+
+            for (var i = left; i <= middleIndex; i++)
+            {
+                tempArray[index] = array[i];
+                index++;
+            }
+
+            for (var i = right; i <= highIndex; i++)
+            {
+                tempArray[index] = array[i];
+                index++;
+            }
+
+            for (var i = 0; i < tempArray.Length; i++)
+            {
+                array[lowIndex + i] = tempArray[i];
+            }
+        }
+
+        //сортировка слиянием
+        static int[] MergeSort(int[] array, int lowIndex, int highIndex)
+        {
+            if (lowIndex < highIndex)
+            {
+                var middleIndex = (lowIndex + highIndex) / 2;
+                MergeSort(array, lowIndex, middleIndex);
+                MergeSort(array, middleIndex + 1, highIndex);
+                Merge(array, lowIndex, middleIndex, highIndex);
+            }
+
+            return array;
+        }
+
+        static int[] MergeSort(int[] array)
+        {
+            return MergeSort(array, 0, array.Length - 1);
+        }
+
         private void Button_Click_15(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Возникли технические шоколадки =/ \n мы пытаемся их решить)", "Не работает(", MessageBoxButton.OK, MessageBoxImage.Error);
+            ArrayList myAL = new ArrayList();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                int[] array = new int[itemCount];
+                Random a = new Random();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    array[i] = Convert.ToInt32(myAL[i]);
+                }
+                MergeSort(array);
+                for (int i = 0; i < itemCount; i++)
+                {
+                    myAL[i] = array[i];
+                }
+                if (1 + a.Next(2) == 2)
+                {
+                    myAL.Reverse();
+                }
+                lbMain.Items.Add("Отсортированный массив");
+                foreach (int elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                }
+                for (int i = 0; i < itemCount; i++)
+                {
+                    int num = (int)myAL[i];
+                    valueList1.Add(new KeyValuePair<string, int>("", num));
+                }
+                lbMain.Items.Add(String.Format("Отсортировано за {0} действий", itemCount));
+            }
         }
     }
 }
