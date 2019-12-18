@@ -31,7 +31,8 @@ namespace Laba_1
             ColumnChart1.DataContext = valueList1;
         }
         ObservableCollection<KeyValuePair<string, int>> valueList = new ObservableCollection<KeyValuePair<string, int>>();
-        ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
+        //ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
+        ObservableCollection<KeyValuePair<string, double>> valueList1 = new ObservableCollection<KeyValuePair<string, double>>();
         void Gen(ArrayList myAL)
         {
 
@@ -96,7 +97,7 @@ namespace Laba_1
                 for (int i = 0; i < itemCount; i++)
                 {
                     int num = (int)myAL[i];
-                    valueList1.Add(new KeyValuePair<string, int>("", num));
+                    valueList1.Add(new KeyValuePair<string, double>("", num));
                 }
             }
         }
@@ -296,7 +297,7 @@ namespace Laba_1
                     if (((int)myAL[k] > count) && ((min > (int)myAL[k])))
                     {
                         min = (int)myAL[k];
-                        min_in = k+1;
+                        min_in = k + 1;
                     }
                 }
                 if (min_in == -1)
@@ -309,7 +310,34 @@ namespace Laba_1
 
         private void Button_Click_16(object sender, RoutedEventArgs e)
         {
+            ArrayList myAL = new ArrayList();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                double count = 0;
+                for (int i = 0; i < itemCount; i++)
+                {
+                    count += (int)myAL[i];
+                }
+                count /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    myAL[k] = Math.Abs(count - (int)myAL[k]);
+                }
+                lbMain.Items.Add("отклонение от среднего арефметического");
+                foreach (double elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                }
+                for (int l = 0; l < itemCount - 1; l++)
+                {
+                    double num = (double)myAL[l];
+                    valueList1.Add(new KeyValuePair<string, double>("", num));
+                }
 
+            }
         }
     }
 }
