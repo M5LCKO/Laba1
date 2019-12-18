@@ -34,13 +34,13 @@ namespace Laba_1
         ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
         void Gen(ArrayList myAL)
         {
-            
+
             try
             {
                 valueList.Clear();
                 valueList1.Clear();
-                    int itemCount = Convert.ToInt32(tbN.Text);
-               
+                int itemCount = Convert.ToInt32(tbN.Text);
+
                 if (itemCount > 0)
                 {
                     Random rnd1 = new Random();
@@ -57,17 +57,17 @@ namespace Laba_1
                     for (index = 0; index < itemCount; index++)
                     {
                         int num = (int)myAL[index];
-                        valueList.Add(new KeyValuePair<string,int>("",num));
+                        valueList.Add(new KeyValuePair<string, int>("", num));
                     }
                 }
                 else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
-            catch(FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
+            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; }
             //Стулов Денис 3В 120871
 
         }
 
-        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
@@ -102,11 +102,9 @@ namespace Laba_1
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
-        {//Стулов Денис 3В 120871
-
+        {
             Microsoft.Win32.SaveFileDialog myDialog = new Microsoft.Win32.SaveFileDialog();
             myDialog.Filter = "Текст(*.TXT)|*.TXT" + "|Все файлы (*.*)|*.* ";
-
             if (myDialog.ShowDialog() == true)
             {
                 string filename = myDialog.FileName;
@@ -120,7 +118,7 @@ namespace Laba_1
             }
         }
 
-        
+
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {//Стулов Денис 3В 120871
             ArrayList myAL = new ArrayList();
@@ -134,7 +132,7 @@ namespace Laba_1
                     if (((int)myAL[i] > (int)myAL[i - 1]) && ((int)myAL[i] > (int)myAL[i + 1]))
                         count++;
                 }
-                
+
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
             }
         }
@@ -198,7 +196,7 @@ namespace Laba_1
                         lbMain.Items.Add(String.Format("Число больше {0} находится на {1} позиции", k.k, i + 1));
                     }
                 }
-                if(buf==0)
+                if (buf == 0)
                 { lbMain.Items.Add(String.Format("Чисел больше {0} нет", k.k)); }
             }
         }
@@ -212,7 +210,7 @@ namespace Laba_1
                 int sum = 0;
                 Window2 num = new Window2();
                 num.ShowDialog();
-                while((itemCount<num.num)&&(num.num != 0))
+                while ((itemCount < num.num) && (num.num != 0))
                 {
                     Window2 p = new Window2();
                     p.ShowDialog();
@@ -220,7 +218,7 @@ namespace Laba_1
                 }
                 for (int i = 0; i < itemCount; i++)
                 {
-                    if ((int)myAL[i] > (int)myAL[num.num-1])
+                    if ((int)myAL[i] > (int)myAL[num.num - 1])
                     {
                         sum += (i + 1);
                     }
@@ -241,10 +239,10 @@ namespace Laba_1
                 for (int i = 1; i < itemCount - 1; i++)
                     if (((int)myAL[i] > (int)myAL[i - 1]) && ((int)myAL[i] > (int)myAL[i + 1]))
                     {
-                        lbMain.SelectedItems.Add(lbMain.Items[i+1]);
+                        lbMain.SelectedItems.Add(lbMain.Items[i + 1]);
                         count++;
                     }
-                lbMain.Items.Add(String.Format("Готово {0}",count));
+                lbMain.Items.Add(String.Format("Готово {0}", count));
             }
 
         }
@@ -263,18 +261,50 @@ namespace Laba_1
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
                 int count = 0;
-                for (int i = 1; i < itemCount-1; i++)
+                for (int i = 1; i < itemCount - 1; i++)
                 {
                     if (((int)myAL[i] > (int)myAL[i - 1]) && ((int)myAL[i] > (int)myAL[i + 1]))
-                        count++;
+                        count -= -1;
                 }
-                if (((int)myAL[0] > (int)myAL[itemCount-1]) && ((int)myAL[0] > (int)myAL[1]))
-                    count++;
-                if (((int)myAL[itemCount-1] > (int)myAL[itemCount - 2]) && ((int)myAL[itemCount-1] > (int)myAL[0]))
-                    count++;
+                if (((int)myAL[0] > (int)myAL[itemCount - 1]) && ((int)myAL[0] > (int)myAL[1]))
+                    count -= -1;
+                if (((int)myAL[itemCount - 1] > (int)myAL[itemCount - 2]) && ((int)myAL[itemCount - 1] > (int)myAL[0]))
+                    count -= -1;
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
-              //k
+                //k
             }
+        }
+
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                int min = 10000;
+                int min_in = -1;
+                double count = 0;
+                for (int i = 0; i < itemCount; i++)
+                {
+                    count += (int)myAL[i];
+                }
+                count /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    if (((int)myAL[k] > count) && ((min > (int)myAL[k])))
+                    {
+                        min = (int)myAL[k];
+                        min_in = k+1;
+                    }
+                }
+                if (min_in == -1)
+                { lbMain.Items.Add(String.Format("нет элементов больше среднего арефметического ")); }
+                lbMain.Items.Add(String.Format("число находится на позиции {0}", min_in));
+
+            }
+
         }
     }
 }
