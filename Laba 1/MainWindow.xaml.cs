@@ -300,8 +300,18 @@ namespace Laba_1
                     count++;
                 if (((int)myAL[itemCount - 1] < (int)myAL[itemCount - 2]) && ((int)myAL[itemCount - 1] > (int)myAL[0]))
                     count++;
-                lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));   
+                lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
             }
+        }
+
+        private void Button_Click_14(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Возникли технические шоколадки =/ \n мы пытаемся их решить)", "Не работает(", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Возникли технические шоколадки =/ \n мы пытаемся их решить)", "Не работает(", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
