@@ -31,7 +31,8 @@ namespace Laba_1
             ColumnChart1.DataContext = valueList1;
         }
         ObservableCollection<KeyValuePair<string, int>> valueList = new ObservableCollection<KeyValuePair<string, int>>();
-        ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
+        //ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
+        ObservableCollection<KeyValuePair<string, double>> valueList1 = new ObservableCollection<KeyValuePair<string, double>>();
         void Gen(ArrayList myAL)
         {
 
@@ -54,6 +55,8 @@ namespace Laba_1
                         myAL.Add(number);
                         lbMain.Items.Add(number);
                     }
+                    valueList.Clear();
+                    valueList1.Clear();
                     for (index = 0; index < itemCount; index++)
                     {
                         int num = (int)myAL[index];
@@ -100,17 +103,15 @@ namespace Laba_1
                 for (int i = 0; i < itemCount; i++)
                 {
                     int num = (int)myAL[i];
-                    valueList1.Add(new KeyValuePair<string, int>("", num));
+                    valueList1.Add(new KeyValuePair<string, double>("", num));
                 }
             }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
-        {//Стулов Денис 3В 120871
-
+        {
             Microsoft.Win32.SaveFileDialog myDialog = new Microsoft.Win32.SaveFileDialog();
             myDialog.Filter = "Текст(*.TXT)|*.TXT" + "|Все файлы (*.*)|*.* ";
-
             if (myDialog.ShowDialog() == true)
             {
                 string filename = myDialog.FileName;
@@ -284,15 +285,173 @@ namespace Laba_1
                 for (int i = 1; i < itemCount - 1; i++)
                 {
                     if (((int)myAL[i] > (int)myAL[i - 1]) && ((int)myAL[i] > (int)myAL[i + 1]))
-                        count++;
+                        count -= -1;
                 }
                 if (((int)myAL[0] > (int)myAL[itemCount - 1]) && ((int)myAL[0] > (int)myAL[1]))
-                    count++;
+                    count -= -1;
                 if (((int)myAL[itemCount - 1] > (int)myAL[itemCount - 2]) && ((int)myAL[itemCount - 1] > (int)myAL[0]))
-                    count++;
+                    count -= -1;
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
                 //k
             }
+        }
+
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                int min = 10000;
+                int min_in = -1;
+                double count = 0;
+                for (int i = 0; i < itemCount; i++)
+                {
+                    count += (int)myAL[i];
+                }
+                count /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    if (((int)myAL[k] > count) && ((min > (int)myAL[k])))
+                    {
+                        min = (int)myAL[k];
+                        min_in = k + 1;
+                    }
+                }
+                if (min_in == -1)
+                { lbMain.Items.Add(String.Format("нет элементов больше среднего арефметического ")); }
+                lbMain.Items.Add(String.Format("число находится на позиции {0}", min_in));
+
+            }
+
+        }
+
+        private void Button_Click_16(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                double count = 0;
+                for (int i = 0; i < itemCount; i++)
+                {
+                    count += (int)myAL[i];
+                }
+                count /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    myAL[k] = Math.Abs(count - (int)myAL[k]);
+                }
+                lbMain.Items.Add("отклонение от среднего арефметического");
+                foreach (double elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                }
+                for (int l = 0; l < itemCount; l++)
+                {
+                    double num = (double)myAL[l];
+                    valueList1.Add(new KeyValuePair<string, double>("", num));
+                }
+
+            }
+        }
+
+        private void Button_Click_17(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen(myAL);
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                double count = 0;
+                double count1 = 0;
+                for (int i = 0; i < itemCount; i++)
+                {
+                    count += (int)myAL[i];
+                }
+                count /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    count1 += Math.Abs(count - (int)myAL[k]);
+                }
+                count1 /= itemCount;
+                lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
+                for (int k = 0; k < itemCount; k++)
+                {
+                    myAL[k] = Convert.ToDouble(myAL[k]);
+                    if (Math.Abs(count - (double)myAL[k]) > count1 / 2)
+                        myAL[k] = count;
+                }
+                foreach (double elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                }
+                valueList1.Clear();
+                foreach (double elem in myAL)
+                {
+                    valueList1.Add(new KeyValuePair<string, double>("", elem));
+                }
+                
+
+            }
+        }
+
+        void Gen1(ArrayList myAL)
+        {
+
+            try
+            {
+                valueList.Clear();
+                valueList1.Clear();
+                int itemCount = Convert.ToInt32(tbN.Text);
+
+                if (itemCount > 0)
+                {
+                    Random rnd1 = new Random();
+                    int number;
+                    int index;
+                    lbMain.Items.Clear();
+                    lbMain.Items.Add("Исходный массив");
+                    number = rnd1.Next(200);
+                    myAL.Add(number);
+                    lbMain.Items.Add(number);
+                    for (index = 1; index < itemCount; index++)
+                    {
+                        number = Convert.ToInt32(myAL[index-1]) - rnd1.Next(200);
+                        myAL.Add(number);
+                        lbMain.Items.Add(number);
+                    }
+                    valueList.Clear();
+                    valueList1.Clear();
+                    for (index = 0; index < itemCount; index++)
+                    {
+                        int num = (int)myAL[index];
+                        valueList.Add(new KeyValuePair<string, int>("", num));
+                    }
+                }
+                else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
+            }
+            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; }
+            //Стулов Денис 3В 120871
+
+        }
+        private void Button_Click_26(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen1(myAL);
         }
 
         private void Button_Click_13(object sender, RoutedEventArgs e)
