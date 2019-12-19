@@ -493,5 +493,56 @@ namespace Laba_1
                 }
             }
         }
+
+        private void Button_Click_20(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen(myAL);
+            Window1 g = new Window1();
+            g.ShowDialog();
+            Window1 l = new Window1();
+            l.ShowDialog();
+            Window1 j = new Window1();
+            j.ShowDialog();
+            for (int h = 0; h < g.k; h++)
+            {
+                if ((tbN.Text != "") && (tbN.Text != "0"))
+                {
+                    int itemCount = Convert.ToInt32(tbN.Text);
+                    double count = 0;
+                    double count1 = 0;
+                    for (int i = 0; i < itemCount; i++)
+                    {
+                        count += Convert.ToDouble(myAL[i]);
+                    }
+                    count /= itemCount;
+                    lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                    for (int k = 0; k < itemCount; k++)
+                    {
+                        count1 += Math.Abs(count - Convert.ToDouble(myAL[k]));
+                    }
+                    count1 /= itemCount;
+                    lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
+                    for (int k = 0; k < itemCount; k++)
+                    {
+                        myAL[k] = Convert.ToDouble(myAL[k]);
+                        if (Math.Abs(count - (double)myAL[k]) > count1 * l.k / 100)
+                            myAL[k] = (double)myAL[k] * j.k;
+                    }
+                    foreach (double elem in myAL)
+                    {
+                        lbMain.Items.Add(elem);
+                    }
+                  
+                }
+            }
+            valueList1.Clear();
+            foreach (double elem in myAL)
+            {
+                valueList1.Add(new KeyValuePair<string, double>("", elem));
+            }
+        }
     }
 }
