@@ -482,6 +482,8 @@ namespace Laba_1
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
             }
         }
+        
+        private void Button_Click_19(object sender, RoutedEventArgs e)
 
         private void Button_Click_14(object sender, RoutedEventArgs e)
         {
