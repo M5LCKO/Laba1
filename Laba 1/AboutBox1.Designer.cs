@@ -60,8 +60,8 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.71166F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.10429F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel.Size = new System.Drawing.Size(556, 326);
             this.tableLayoutPanel.TabIndex = 0;
@@ -130,13 +130,13 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(191, 132);
+            this.textBoxDescription.Location = new System.Drawing.Point(191, 161);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(361, 155);
+            this.textBoxDescription.Size = new System.Drawing.Size(361, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Описание";

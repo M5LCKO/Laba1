@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("Laba 1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Стулов Денис")]
 [assembly: AssemblyProduct("Laba 1")]
 [assembly: AssemblyCopyright("GPU")]
 [assembly: AssemblyTrademark("")]

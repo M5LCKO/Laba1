@@ -428,7 +428,7 @@ namespace Laba_1
                     lbMain.Items.Add(number);
                     for (index = 1; index < itemCount; index++)
                     {
-                        number = Convert.ToInt32(myAL[index-1]) - rnd1.Next(200);
+                        number = Convert.ToInt32(myAL[index - 1]) - rnd1.Next(200);
                         myAL.Add(number);
                         lbMain.Items.Add(number);
                     }
@@ -609,5 +609,6 @@ namespace Laba_1
                 lbMain.Items.Add(String.Format("Отсортировано за {0} действий", itemCount));
             }
         }
+
     }
 }

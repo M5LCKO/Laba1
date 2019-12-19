@@ -23,7 +23,7 @@
         <Button Content="Расчет 6" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_7"/>
         <Button Content="Расчет 7" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_8"/>
         <Button Content="Расчет 8" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="Button_Click_9"/>
-        <Button Content="Об авторе" HorizontalAlignment="Left" VerticalAlignment="Top" Width="2" BorderBrush="White" Foreground="White" Background="White" Click="Button_Click_10" Height="2" Margin="80,25,0,0"/>
+        <Button Content="Об авторе" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" BorderBrush="White" Foreground="White" Background="White" Click="Button_Click_10" Height="20" Margin="10,10,0,0"/>
         <chartingToolkit:Chart Name="ColumnChart" HorizontalAlignment="Left" Margin="303,10,0,0" VerticalAlignment="Top" Height="204" Width="473">
             <chartingToolkit:ColumnSeries DependentValuePath="Value" ItemsSource="{Binding}" HorizontalAlignment="Left" Width="341" Title="Массив" Margin="0,0,0,1.8" RenderTransformOrigin="0,0"/>
         </chartingToolkit:Chart>
