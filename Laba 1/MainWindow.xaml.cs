@@ -506,7 +506,7 @@ namespace Laba_1
                 for (int i = 0; i < itemCount; i++)
                 {
                     int num = (int)myAL[i];
-                    valueList1.Add(new KeyValuePair<string, int>("", num));
+                    valueList1.Add(new KeyValuePair<string, double>("", num));
                 }
             }
         }
@@ -604,7 +604,7 @@ namespace Laba_1
                 for (int i = 0; i < itemCount; i++)
                 {
                     int num = (int)myAL[i];
-                    valueList1.Add(new KeyValuePair<string, int>("", num));
+                    valueList1.Add(new KeyValuePair<string, double>("", num));
                 }
                 lbMain.Items.Add(String.Format("Отсортировано за {0} действий", itemCount));
             }
