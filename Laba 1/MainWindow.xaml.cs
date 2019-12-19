@@ -402,13 +402,56 @@ namespace Laba_1
                 {
                     valueList1.Add(new KeyValuePair<string, double>("", elem));
                 }
-                //for (int l = 0; l < itemCount; l++)
-                //{
-                //    double num = (double)myAL[l];
-                //    valueList1.Add(new KeyValuePair<string, double>("", num));
-                //}
+                
 
             }
+        }
+
+        void Gen1(ArrayList myAL)
+        {
+
+            try
+            {
+                valueList.Clear();
+                valueList1.Clear();
+                int itemCount = Convert.ToInt32(tbN.Text);
+
+                if (itemCount > 0)
+                {
+                    Random rnd1 = new Random();
+                    int number;
+                    int index;
+                    lbMain.Items.Clear();
+                    lbMain.Items.Add("Исходный массив");
+                    number = rnd1.Next(200);
+                    myAL.Add(number);
+                    lbMain.Items.Add(number);
+                    for (index = 1; index < itemCount; index++)
+                    {
+                        number = Convert.ToInt32(myAL[index-1]) - rnd1.Next(200);
+                        myAL.Add(number);
+                        lbMain.Items.Add(number);
+                    }
+                    valueList.Clear();
+                    valueList1.Clear();
+                    for (index = 0; index < itemCount; index++)
+                    {
+                        int num = (int)myAL[index];
+                        valueList.Add(new KeyValuePair<string, int>("", num));
+                    }
+                }
+                else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
+            }
+            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; }
+            //Стулов Денис 3В 120871
+
+        }
+        private void Button_Click_26(object sender, RoutedEventArgs e)
+        {
+            ArrayList myAL = new ArrayList();
+            valueList.Clear();
+            valueList1.Clear();
+            Gen1(myAL);
         }
     }
 }
