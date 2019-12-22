@@ -449,8 +449,6 @@ namespace Laba_1
 
         }
 
-        private void Button_Click_14(object sender, RoutedEventArgs e)
-
         private void Button_Click_19(object sender, RoutedEventArgs e)
         {
             ArrayList myAL = new ArrayList();
@@ -495,120 +493,59 @@ namespace Laba_1
                 }
             }
             }
-        }
-
-        //метод для слияния массивов
-        static void Merge(int[] array, int lowIndex, int middleIndex, int highIndex)
-        {
-            var left = lowIndex;
-            var right = middleIndex + 1;
-            var tempArray = new int[highIndex - lowIndex + 1];
-            var index = 0;
-
-            while ((left <= middleIndex) && (right <= highIndex))
-            {
-                if (array[left] < array[right])
-                {
-                    tempArray[index] = array[left];
-                    left++;
-                }
-                else
-                {
-                    tempArray[index] = array[right];
-                    right++;
-                }
-
-                index++;
-            }
-
-            for (var i = left; i <= middleIndex; i++)
-            {
-                tempArray[index] = array[i];
-                index++;
-            }
-
-            for (var i = right; i <= highIndex; i++)
-            {
-                tempArray[index] = array[i];
-                index++;
-            }
-
-            for (var i = 0; i < tempArray.Length; i++)
-            {
-                array[lowIndex + i] = tempArray[i];
-            }
-        }
-
-        //сортировка слиянием
-        static int[] MergeSort(int[] array, int lowIndex, int highIndex)
-        {
-            if (lowIndex < highIndex)
-            {
-                var middleIndex = (lowIndex + highIndex) / 2;
-                MergeSort(array, lowIndex, middleIndex);
-                MergeSort(array, middleIndex + 1, highIndex);
-                Merge(array, lowIndex, middleIndex, highIndex);
-            }
-
-            return array;
-        }
-
-
-        static int[] MergeSort(int[] array)
-        {
-            return MergeSort(array, 0, array.Length - 1);
-        }
 
         private void Button_Click_20(object sender, RoutedEventArgs e)
         {
-            ArrayList myAL = new ArrayList();
-            valueList.Clear();
-            valueList1.Clear();
-            Gen(myAL);
-            Window1 g = new Window1();
-            g.ShowDialog();
-            Window1 l = new Window1();
-            l.ShowDialog();
-            Window1 j = new Window1();
-            j.ShowDialog();
-            for (int h = 0; h < g.k; h++)
             {
-                if ((tbN.Text != "") && (tbN.Text != "0"))
+                ArrayList myAL = new ArrayList();
+                valueList.Clear();
+                valueList1.Clear();
+                Gen(myAL);
+                Window1 g = new Window1();
+                g.ShowDialog();
+                Window1 l = new Window1();
+                l.ShowDialog();
+                Window1 j = new Window1();
+                j.ShowDialog();
+                for (int h = 0; h < g.k; h++)
                 {
-                    int itemCount = Convert.ToInt32(tbN.Text);
-                    double count = 0;
-                    double count1 = 0;
-                    for (int i = 0; i < itemCount; i++)
+                    if ((tbN.Text != "") && (tbN.Text != "0"))
                     {
-                        count += Convert.ToDouble(myAL[i]);
+                        int itemCount = Convert.ToInt32(tbN.Text);
+                        double count = 0;
+                        double count1 = 0;
+                        for (int i = 0; i < itemCount; i++)
+                        {
+                            count += Convert.ToDouble(myAL[i]);
+                        }
+                        count /= itemCount;
+                        lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
+                        for (int k = 0; k < itemCount; k++)
+                        {
+                            count1 += Math.Abs(count - Convert.ToDouble(myAL[k]));
+                        }
+                        count1 /= itemCount;
+                        lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
+                        for (int k = 0; k < itemCount; k++)
+                        {
+                            myAL[k] = Convert.ToDouble(myAL[k]);
+                            if (Math.Abs(count - (double)myAL[k]) > count1 * l.k / 100)
+                                myAL[k] = (double)myAL[k] * j.k;
+                        }
+                        foreach (double elem in myAL)
+                        {
+                            lbMain.Items.Add(elem);
+                        }
+
                     }
-                    count /= itemCount;
-                    lbMain.Items.Add(String.Format("Среднее занчение элементов массива {0}", count));
-                    for (int k = 0; k < itemCount; k++)
-                    {
-                        count1 += Math.Abs(count - Convert.ToDouble(myAL[k]));
-                    }
-                    count1 /= itemCount;
-                    lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
-                    for (int k = 0; k < itemCount; k++)
-                    {
-                        myAL[k] = Convert.ToDouble(myAL[k]);
-                        if (Math.Abs(count - (double)myAL[k]) > count1 * l.k / 100)
-                            myAL[k] = (double)myAL[k] * j.k;
-                    }
-                    foreach (double elem in myAL)
-                    {
-                        lbMain.Items.Add(elem);
-                    }
-                  
+                }
+                valueList1.Clear();
+                foreach (double elem in myAL)
+                {
+                    valueList1.Add(new KeyValuePair<string, double>("", elem));
                 }
             }
-            valueList1.Clear();
-            foreach (double elem in myAL)
-            {
-                valueList1.Add(new KeyValuePair<string, double>("", elem));
-            }
         }
-
     }
 }
+
