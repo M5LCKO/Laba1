@@ -482,8 +482,6 @@ namespace Laba_1
                 lbMain.Items.Add(String.Format("Количество чисел, которые больше своих соседей {0}", count));
             }
         }
-        
-        private void Button_Click_19(object sender, RoutedEventArgs e)
 
         private void Button_Click_14(object sender, RoutedEventArgs e)
         {
@@ -494,11 +492,12 @@ namespace Laba_1
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
-                Random a = new Random();
-                myAL.Sort();
-                if (1 + a.Next(2) == 2)
+                bool a = false;
+
+                for (int i = 0; i < itemCount-2; i += 3)
                 {
-                    myAL.Reverse();
+                    sort(myAL, i, i + 3, a);
+                    a = !a;
                 }
                 lbMain.Items.Add("Отсортированный массив");
                 foreach (int elem in myAL)
@@ -513,67 +512,61 @@ namespace Laba_1
             }
         }
 
-        //метод для слияния массивов
-        static void Merge(int[] array, int lowIndex, int middleIndex, int highIndex)
+        void sort(ArrayList arr, int begin, int end, bool mode)
         {
-            var left = lowIndex;
-            var right = middleIndex + 1;
-            var tempArray = new int[highIndex - lowIndex + 1];
-            var index = 0;
-
-            while ((left <= middleIndex) && (right <= highIndex))
+            int buff = 0;
+            for (int i = begin; i < end - 1; i++)
             {
-                if (array[left] < array[right])
+                for (int j = begin + 1; j < end; j++)
                 {
-                    tempArray[index] = array[left];
-                    left++;
+                    if (mode)
+                    {
+                        if ((int)arr[i] < (int)arr[j])
+                        {
+                            buff = (int)arr[j];
+                            arr[j] = (int)arr[i];
+                            arr[i] = buff;
+                        }
+                    }
+                    else
+                    {
+                        if ((int)arr[i] > (int)arr[j])
+                        {
+                            buff = (int)arr[j];
+                            arr[j] = (int)arr[i];
+                            arr[i] = buff;
+                        }
+                    }
+
                 }
-                else
-                {
-                    tempArray[index] = array[right];
-                    right++;
-                }
-
-                index++;
-            }
-
-            for (var i = left; i <= middleIndex; i++)
-            {
-                tempArray[index] = array[i];
-                index++;
-            }
-
-            for (var i = right; i <= highIndex; i++)
-            {
-                tempArray[index] = array[i];
-                index++;
-            }
-
-            for (var i = 0; i < tempArray.Length; i++)
-            {
-                array[lowIndex + i] = tempArray[i];
             }
         }
-
-        //сортировка слиянием
-        static int[] MergeSort(int[] array, int lowIndex, int highIndex)
+        void swap(ArrayList arr, int i, int j)
         {
-            if (lowIndex < highIndex)
-            {
-                var middleIndex = (lowIndex + highIndex) / 2;
-                MergeSort(array, lowIndex, middleIndex);
-                MergeSort(array, middleIndex + 1, highIndex);
-                Merge(array, lowIndex, middleIndex, highIndex);
-            }
-
-            return array;
+            int buff = (int)arr[j];
+            arr[j] = arr[i];
+            arr[i] = buff;
         }
 
-        static int[] MergeSort(int[] array)
+        void sort2(ArrayList arr, int begin, bool mode)
         {
-            return MergeSort(array, 0, array.Length - 1);
+            if (mode)
+            {
+                if ((int)arr[begin] > (int)arr[begin + 1]) swap(arr, begin, begin + 1);
+                if ((int)arr[begin + 1] > (int)arr[begin + 2]) swap(arr, begin + 1, begin + 2);
+                if ((int)arr[begin] > (int)arr[begin + 1]) swap(arr, begin, begin + 1);
+            }
+            else
+            {
+                if ((int)arr[begin] < (int)arr[begin + 1]) swap(arr, begin, begin + 1);
+                if ((int)arr[begin + 1] < (int)arr[begin + 2]) swap(arr, begin + 1, begin + 2);
+                if ((int)arr[begin] < (int)arr[begin + 1]) swap(arr, begin, begin + 1);
+            }
         }
-
+        bool isSort(ArrayList arr, int begin)
+        {
+            return ((int)arr[begin] > (int)arr[begin + 1]) && ((int)arr[begin + 1] > (int)arr[begin + 2]) || ((int)arr[begin] < (int)arr[begin + 1]) && ((int)arr[begin + 1] < (int)arr[begin + 2]);
+        }
         private void Button_Click_15(object sender, RoutedEventArgs e)
         {
             ArrayList myAL = new ArrayList();
@@ -583,20 +576,15 @@ namespace Laba_1
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
-                int[] array = new int[itemCount];
-                Random a = new Random();
-                for (int i = 0; i < itemCount; i++)
+                bool a = false;
+
+                for (int i = 0; i < itemCount - 2; i += 3)
                 {
-                    array[i] = Convert.ToInt32(myAL[i]);
-                }
-                MergeSort(array);
-                for (int i = 0; i < itemCount; i++)
-                {
-                    myAL[i] = array[i];
-                }
-                if (1 + a.Next(2) == 2)
-                {
-                    myAL.Reverse();
+                    if (!isSort(myAL, i))
+                    {
+                        sort2(myAL, i, a);
+                        a = !a;
+                    }
                 }
                 lbMain.Items.Add("Отсортированный массив");
                 foreach (int elem in myAL)
@@ -608,7 +596,6 @@ namespace Laba_1
                     int num = (int)myAL[i];
                     valueList1.Add(new KeyValuePair<string, double>("", num));
                 }
-                lbMain.Items.Add(String.Format("Отсортировано за {0} действий", itemCount));
             }
         }
 
