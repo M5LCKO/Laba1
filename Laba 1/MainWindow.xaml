@@ -39,11 +39,11 @@
         <Button Content="8" HorizontalAlignment="Left" Margin="80,258,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_18"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="80,288,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_19"/>
         <Button Content="10" HorizontalAlignment="Left" Margin="135,78,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_20"/>
-        <Button Content="11" HorizontalAlignment="Left" Margin="135,108,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_21"/>
-        <Button Content="12" HorizontalAlignment="Left" Margin="135,138,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
-        <Button Content="13" HorizontalAlignment="Left" Margin="135,168,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
-        <Button Content="14" HorizontalAlignment="Left" Margin="135,198,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
-        <Button Content="15" HorizontalAlignment="Left" Margin="135,228,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
+        <Button Content="11" HorizontalAlignment="Left" Margin="135,108,0,0" VerticalAlignment="Top" Width="50" Height="25"  IsEnabled="False"/>
+        <Button Content="12" HorizontalAlignment="Left" Margin="135,138,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_22"/>
+        <Button Content="13" HorizontalAlignment="Left" Margin="135,168,0,0" VerticalAlignment="Top" Width="50" Height="25"  IsEnabled="False"/>
+        <Button Content="14" HorizontalAlignment="Left" Margin="135,198,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_24"/>
+        <Button Content="15" HorizontalAlignment="Left" Margin="135,228,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="Button_Click_25"/>
         <Button Content="16" HorizontalAlignment="Left" Margin="135,258,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
         <Button Content="5*" HorizontalAlignment="Left" Margin="135,288,0,0" VerticalAlignment="Top" Width="50" Height="25" IsEnabled="False"/>
     </Grid>

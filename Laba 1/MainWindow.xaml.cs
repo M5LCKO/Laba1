@@ -45,17 +45,22 @@ namespace Laba_1
                 if (itemCount > 0)
                 {
                     Random rnd1 = new Random();
+                    int number;
                     int index;
                     lbMain.Items.Clear();
                     lbMain.Items.Add("Исходный массив");
-                    myAL = gen.Gen(itemCount);
+                    for (index = 1; index <= itemCount; index++)
+                    {
+                        number = -100 + rnd1.Next(200);
+                        myAL.Add(number);
+                        lbMain.Items.Add(number);
+                    }
                     valueList.Clear();
                     valueList1.Clear();
                     for (index = 0; index < itemCount; index++)
                     {
                         int num = (int)myAL[index];
                         valueList.Add(new KeyValuePair<string, int>("", num));
-                        lbMain.Items.Add(num);
                     }
                     return myAL;
                 }
@@ -541,6 +546,24 @@ namespace Laba_1
 
         private void Button_Click_21(object sender, RoutedEventArgs e)
         {
+            lbMain.Items.Clear();
+            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
+        }
+
+        private void Button_Click_22(object sender, RoutedEventArgs e)
+        {
+            lbMain.Items.Clear();
+            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
+        }
+        private void Button_Click_24(object sender, RoutedEventArgs e)
+        {
+            lbMain.Items.Clear();
+            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
+        }
+
+        private void Button_Click_25(object sender, RoutedEventArgs e)
+        {
+            lbMain.Items.Clear();
             lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
         }
     }
