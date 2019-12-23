@@ -33,7 +33,7 @@ namespace Laba_1
         ObservableCollection<KeyValuePair<string, int>> valueList = new ObservableCollection<KeyValuePair<string, int>>();
         //ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
         ObservableCollection<KeyValuePair<string, double>> valueList1 = new ObservableCollection<KeyValuePair<string, double>>();
-        void Gen(ArrayList myAL)
+        ArrayList Gen(ArrayList myAL)
         {
 
             try
@@ -45,16 +45,10 @@ namespace Laba_1
                 if (itemCount > 0)
                 {
                     Random rnd1 = new Random();
-                    int number;
                     int index;
                     lbMain.Items.Clear();
                     lbMain.Items.Add("Исходный массив");
-                    for (index = 1; index <= itemCount; index++)
-                    {
-                        number = -100 + rnd1.Next(200);
-                        myAL.Add(number);
-                        lbMain.Items.Add(number);
-                    }
+                    myAL = gen.Gen(itemCount);
                     valueList.Clear();
                     valueList1.Clear();
                     for (index = 0; index < itemCount; index++)
@@ -62,10 +56,11 @@ namespace Laba_1
                         int num = (int)myAL[index];
                         valueList.Add(new KeyValuePair<string, int>("", num));
                     }
+                    return myAL;
                 }
-                else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
+                else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return myAL; }
             }
-            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; }
+            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; return myAL; }
             //Стулов Денис 3В 120871
 
         }
@@ -82,7 +77,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -90,7 +85,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -151,7 +146,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -173,7 +168,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0") && (tbN.Text != "1"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -196,7 +191,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -220,7 +215,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -250,7 +245,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int count = 0;
@@ -277,7 +272,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -301,7 +296,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -335,7 +330,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -369,7 +364,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -407,7 +402,7 @@ namespace Laba_1
             }
         }
 
-        void Gen1(ArrayList myAL)
+        ArrayList Gen1(ArrayList myAL)
         {
 
             try
@@ -419,30 +414,23 @@ namespace Laba_1
                 if (itemCount > 0)
                 {
                     Random rnd1 = new Random();
-                    int number;
                     int index;
                     lbMain.Items.Clear();
                     lbMain.Items.Add("Исходный массив");
-                    number = rnd1.Next(200);
-                    myAL.Add(number);
-                    lbMain.Items.Add(number);
-                    for (index = 1; index < itemCount; index++)
-                    {
-                        number = Convert.ToInt32(myAL[index - 1]) - rnd1.Next(200);
-                        myAL.Add(number);
-                        lbMain.Items.Add(number);
-                    }
+                    myAL = gen.Gen1(itemCount);
                     valueList.Clear();
                     valueList1.Clear();
                     for (index = 0; index < itemCount; index++)
                     {
                         int num = (int)myAL[index];
                         valueList.Add(new KeyValuePair<string, int>("", num));
+                        lbMain.Items.Add(num);
                     }
+                    return myAL;
                 }
-                else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); }
+                else { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return myAL; }
             }
-            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; }
+            catch (FormatException) { MessageBox.Show("Вы забыли указать число или вы указали 0, либо число меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); tbN.Text = ""; return myAL; }
             //Стулов Денис 3В 120871
 
         }
@@ -451,7 +439,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen1(myAL);
+            myAL = Gen1(myAL);
         }
 
         private void Button_Click_13(object sender, RoutedEventArgs e)
@@ -459,7 +447,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -488,7 +476,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -572,7 +560,7 @@ namespace Laba_1
             ArrayList myAL = new ArrayList();
             valueList.Clear();
             valueList1.Clear();
-            Gen(myAL);
+            myAL = Gen(myAL);
             if ((tbN.Text != "") && (tbN.Text != "0"))
             {
                 int itemCount = Convert.ToInt32(tbN.Text);
@@ -598,6 +586,15 @@ namespace Laba_1
                 }
             }
         }
+        private void Button_Click_21(object sender, RoutedEventArgs e)
+        {
+            lbMain.Items.Clear();
+            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
+        }
 
+        private void Button_Click_23(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
