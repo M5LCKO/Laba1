@@ -595,6 +595,23 @@ namespace Laba_1
         private void Button_Click_23(object sender, RoutedEventArgs e)
         {
 
+            if ((tbN.Text != "") && (tbN.Text != "0"))
+            {
+                int itemCount = Convert.ToInt32(tbN.Text);
+                valueList.Clear();
+                lbMain.Items.Clear();
+                SpaseBall sb = new SpaseBall(itemCount);
+
+                ArrayList myAL = sb.genArray();
+
+                valueList.Clear();
+
+                foreach (int elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                    valueList.Add(new KeyValuePair<string, int>("", elem));
+                }
+            }
         }
     }
 }
