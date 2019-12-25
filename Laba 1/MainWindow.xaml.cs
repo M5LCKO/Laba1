@@ -552,13 +552,268 @@ namespace Laba_1
 
         private void Button_Click_22(object sender, RoutedEventArgs e)
         {
-            lbMain.Items.Clear();
-            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
+         //Казурова Анна 3В
+            int Vibor, index;
+            int itemCount = Convert.ToInt32(tbN.Text);
+            
+            List<int> myAL = new List<int>();
+            List<int> myAL1 = new List<int>();
+
+            abs.Gen_int(myAL, itemCount);
+
+            Window1 z = new Window1();
+            Window1 q = new Window1();
+            z.Label1.Content = "Введите номер задания (7-9)";
+
+
+            z.ShowDialog();
+
+            do
+            {
+                if ((Convert.ToInt32(z.num.Text) < 7) || (Convert.ToInt32(z.num.Text) > 9))
+                {
+                    MessageBox.Show("Выберете задание 7, 8, 9!");
+                    q.Label1.Content = "Введите номер задания (7-9)";
+                    q.ShowDialog();
+                                      
+                }
+            } while ((Convert.ToInt32(z.num.Text) < 7) || (Convert.ToInt32(z.num.Text) > 9));
+
+            Vibor = Convert.ToInt32(z.num.Text);
+
+            if (Vibor == 7)
+            {
+                lbMain.Items.Clear();
+                lbMain.Items.Add("Исходный массив:");
+                for (index = 0; index < itemCount; index++)
+                {
+
+                    lbMain.Items.Add(myAL[index]);
+                }
+
+                valueList.Clear();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                }
+
+                abs.But_7(myAL, myAL1, itemCount);
+
+
+                lbMain.Items.Add("Новый массив: ");
+
+                for (int i = 0; i < itemCount; i++)
+                {
+                    lbMain.Items.Add(myAL[i]);
+                }
+
+                valueList1.Clear();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    valueList1.Add(new KeyValuePair<string, double>("", (double)myAL[i]));
+                }
+
+                lbMain.Items.Add("Дан массив из K чисел. \nНайдите среднее значение элементов \nмассива. Замените все элементы массива, \nотклонение от среднего значения которых \nбольше половины среднего отклонения \nвсех элементов, на среднее значение.");
+            }
+
+            abs.Gen_int(myAL, itemCount);
+
+            if (Vibor == 8)
+            {
+                                
+                lbMain.Items.Clear();
+                lbMain.Items.Add("Исходный массив:");
+                for (index = 0; index < itemCount; index++)
+                {
+                    lbMain.Items.Add(myAL[index]);
+                }
+
+                valueList.Clear();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                }
+
+
+                Window1 zz = new Window1();
+                Window1 qq = new Window1();
+                zz.Label1.Content = "Введите количество процентов L";
+
+
+                zz.ShowDialog();
+
+                do
+                {
+                    if ((Convert.ToInt32(zz.num.Text) < 0) || (Convert.ToInt32(zz.num.Text) > 100))
+                    {
+                        MessageBox.Show("Выберете процент от 1 до 100");
+                        qq.Label1.Content = "Введите количество процентов L";
+                        qq.ShowDialog();
+                    }
+                } while ((Convert.ToInt32(zz.num.Text) < 0) || (Convert.ToInt32(zz.num.Text) > 100));
+
+
+                abs.But_8(myAL, myAL1, itemCount, Convert.ToInt32(zz.num.Text));
+
+
+                lbMain.Items.Add("Новый массив: ");
+
+                for (int i = 0; i < itemCount; i++)
+                {
+                    lbMain.Items.Add(myAL[i]);
+                }
+
+                valueList1.Clear();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    valueList1.Add(new KeyValuePair<string, double>("", (double)myAL[i]));
+                }
+
+                lbMain.Items.Add("Дан массив из K чисел. \nНайдите среднее значение элементов массива. \nЗамените все элементы массива, \nотклонение от среднего значения которых \nбольше L процентов от среднего отклонения \nвсех элементов, на среднее значение.");
+            }
+
+            abs.Gen_int(myAL, itemCount);
+
+            if (Vibor == 9)
+            {
+                lbMain.Items.Clear();
+                lbMain.Items.Add("Исходный массив:");
+                for (index = 0; index < itemCount; index++)
+                {
+                    lbMain.Items.Add(myAL[index]);
+                }
+
+                valueList.Clear();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                }
+
+
+                Window1 zzz = new Window1();
+                Window1 qqq = new Window1();
+                zzz.Label1.Content = "Введите количество процентов L";
+
+
+                zzz.ShowDialog();
+
+                do
+                {
+                    if ((Convert.ToInt32(zzz.num.Text) < 0) || (Convert.ToInt32(zzz.num.Text) > 100))
+                    {
+                        MessageBox.Show("Выберете процент от 1 до 100");
+                        qqq.Label1.Content = "Введите количество процентов L";
+                        qqq.ShowDialog();
+                    }
+                } while ((Convert.ToInt32(zzz.num.Text) < 0) || (Convert.ToInt32(zzz.num.Text) > 100));
+
+                Window2 zzzz = new Window2();
+                zzzz.Label2.Content = "Введите";
+                zzzz.Label3.Content = "коэффициент Z";
+                zzzz.ShowDialog();
+
+                abs.But_9(myAL, myAL1, itemCount, Convert.ToInt32(zzz.num.Text), Convert.ToInt32(zzzz.number.Text));
+
+
+                lbMain.Items.Add("Новый массив: ");
+
+                for (int i = 0; i < itemCount; i++)
+                {
+                    lbMain.Items.Add(myAL[i]);
+                }
+
+                valueList1.Clear();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    valueList1.Add(new KeyValuePair<string, double>("", (double)myAL[i]));
+                }
+
+                lbMain.Items.Add("Дан массив из K чисел. \nНайдите среднее значение элементов \nмассива. Измените все элементы массива, \nотклонение от среднего значения которых \nбольше L процентов от среднего отклонения \nвсех элементов, на коэфициент Z.");
+
+            }
+
+
+
         }
         private void Button_Click_24(object sender, RoutedEventArgs e)
         {
+            //Казурова Анна 3В
+            int itemCount = Convert.ToInt32(tbN.Text);
+            int index;
+
+            List<int> myAL = new List<int>();
+            List<int> myAL1 = new List<int>();
+
+            abs.Gen_int(myAL, itemCount);
+
+            Window1 z = new Window1();
+            Window1 q = new Window1();
+            z.Label1.Content = "Введите количество элементов на отрезке массива";
+
+            z.ShowDialog();
+
+            do
+            {
+                if ((Convert.ToInt32(z.num.Text) < 1) || (Convert.ToInt32(z.num.Text) > itemCount))
+                {
+                    MessageBox.Show("Выберете задание 7, 8, 9!");
+                    q.Label1.Content = "Введите номер задания (7-9)";
+                    q.ShowDialog();
+
+                }
+            } while ((Convert.ToInt32(z.num.Text) < 1) || (Convert.ToInt32(z.num.Text) > itemCount));
+
+            Window1 zzz = new Window1();
+            Window1 qqq = new Window1();
+            zzz.Label1.Content = "Введите количество процентов L";
+
+
+            zzz.ShowDialog();
+
+            do
+            {
+                if ((Convert.ToInt32(zzz.num.Text) < 0) || (Convert.ToInt32(zzz.num.Text) > 100))
+                {
+                    MessageBox.Show("Выберете процент от 1 до 100");
+                    qqq.Label1.Content = "Введите количество процентов L";
+                    qqq.ShowDialog();
+                }
+            } while ((Convert.ToInt32(zzz.num.Text) < 0) || (Convert.ToInt32(zzz.num.Text) > 100));
+
+            Window2 zzzz = new Window2();
+            zzzz.Label2.Content = "Введите";
+            zzzz.Label3.Content = "коэффициент Z";
+            zzzz.ShowDialog();
+
+
+            abs.But_norm(myAL, myAL1, itemCount, Convert.ToInt32(z.num.Text), Convert.ToInt32(zzz.num.Text), Convert.ToInt32(zzzz.number.Text));
+
             lbMain.Items.Clear();
-            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
+            lbMain.Items.Add("Исходный массив:");
+            for (index = 0; index < itemCount; index++)
+            {
+                lbMain.Items.Add(myAL[index]);
+            }
+
+            valueList.Clear();
+            for (int i = 0; i < itemCount; i++)
+            {
+                valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+            }
+
+           
+            lbMain.Items.Add("Новый массив:");
+            for (index = 0; index < itemCount; index++)
+            {
+                lbMain.Items.Add(myAL1[index]);
+            }
+
+            valueList1.Clear();
+            for (int i = 0; i < itemCount; i++)
+            {
+                valueList1.Add(new KeyValuePair<string, double>("", (double)myAL1[i]));
+            }
+
         }
 
         private void Button_Click_25(object sender, RoutedEventArgs e)
