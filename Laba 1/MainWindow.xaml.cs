@@ -426,6 +426,7 @@ namespace Laba_1
                 count1 /= itemCount;
                 lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
                 Window1 l = new Window1();
+                l.Label1.Content = "Введите %";
                 l.ShowDialog();
                 for (int k = 0; k < itemCount; k++)
                 {
@@ -470,8 +471,10 @@ namespace Laba_1
                 count1 /= itemCount;
                 lbMain.Items.Add(String.Format("Среднее занчение всех отклонений от среднего арефметического {0}", count1));
                 Window1 l = new Window1();
+                l.Label1.Content = "Введите %";
                 l.ShowDialog();
                 Window1 j = new Window1();
+                j.Label1.Content = "Введите коэфициент";
                 j.ShowDialog();
                 for (int k = 0; k < itemCount; k++)
                 {
@@ -499,10 +502,13 @@ namespace Laba_1
                 valueList1.Clear();
                 myAL = Gen(myAL);
                 Window1 g = new Window1();
+                g.Label1.Content = "Введите количество итераций";
                 g.ShowDialog();
                 Window1 l = new Window1();
+                l.Label1.Content = "Введите %";
                 l.ShowDialog();
                 Window1 j = new Window1();
+                j.Label1.Content = "Введите коэфициент";
                 j.ShowDialog();
                 for (int h = 0; h < g.k; h++)
                 {
