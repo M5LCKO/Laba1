@@ -508,7 +508,7 @@ namespace Laba_1
                 l.Label1.Content = "Введите %";
                 l.ShowDialog();
                 Window1 j = new Window1();
-                j.Label1.Content = "Введите коэфициент";
+                j.Label1.Content = "Введите коэфициент";//k
                 j.ShowDialog();
                 for (int h = 0; h < g.k; h++)
                 {
