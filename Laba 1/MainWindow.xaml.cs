@@ -30,7 +30,7 @@ namespace Laba_1
             ColumnChart.DataContext = valueList;
             ColumnChart1.DataContext = valueList1;
         }
-        ObservableCollection<KeyValuePair<string, int>> valueList = new ObservableCollection<KeyValuePair<string, int>>();
+        ObservableCollection<KeyValuePair<string, double>> valueList = new ObservableCollection<KeyValuePair<string, double>>();
         //ObservableCollection<KeyValuePair<string, int>> valueList1 = new ObservableCollection<KeyValuePair<string, int>>();
         ObservableCollection<KeyValuePair<string, double>> valueList1 = new ObservableCollection<KeyValuePair<string, double>>();
         ArrayList Gen(ArrayList myAL)
@@ -54,7 +54,8 @@ namespace Laba_1
                     for (index = 0; index < itemCount; index++)
                     {
                         int num = (int)myAL[index];
-                        valueList.Add(new KeyValuePair<string, int>("", num));
+                        lbMain.Items.Add(num);
+                        valueList.Add(new KeyValuePair<string, double>("", num));
                     }
                     return myAL;
                 }
@@ -419,7 +420,7 @@ namespace Laba_1
                     for (index = 0; index < itemCount; index++)
                     {
                         int num = (int)myAL[index];
-                        valueList.Add(new KeyValuePair<string, int>("", num));
+                        valueList.Add(new KeyValuePair<string, double>("", num));
                         lbMain.Items.Add(num);
                     }
                     return myAL;
@@ -591,11 +592,18 @@ namespace Laba_1
                 int itemCount = Convert.ToInt32(tbN.Text);
                 valueList.Clear();
                 lbMain.Items.Clear();
+                lbMain.Items.Add("Исходный массив");
                 SpaseBall sb = new SpaseBall(itemCount);
 
                 ArrayList myAL = sb.genArray();
 
                 valueList.Clear();
+
+                foreach (int elem in myAL)
+                {
+                    lbMain.Items.Add(elem);
+                    valueList.Add(new KeyValuePair<string, double>("", elem));
+                }
             }
         }
 
@@ -791,7 +799,7 @@ namespace Laba_1
                 valueList.Clear();
                 for (int i = 0; i < itemCount; i++)
                 {
-                    valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                    valueList.Add(new KeyValuePair<string, double>("", myAL[i]));
                 }
 
                 abs.But_7(myAL, myAL1, itemCount);
@@ -828,7 +836,7 @@ namespace Laba_1
                 valueList.Clear();
                 for (int i = 0; i < itemCount; i++)
                 {
-                    valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                    valueList.Add(new KeyValuePair<string, double>("", myAL[i]));
                 }
 
 
@@ -883,7 +891,7 @@ namespace Laba_1
                 valueList.Clear();
                 for (int i = 0; i < itemCount; i++)
                 {
-                    valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                    valueList.Add(new KeyValuePair<string, double>("", myAL[i]));
                 }
 
 
@@ -995,7 +1003,7 @@ namespace Laba_1
             valueList.Clear();
             for (int i = 0; i < itemCount; i++)
             {
-                valueList.Add(new KeyValuePair<string, int>("", myAL[i]));
+                valueList.Add(new KeyValuePair<string, double>("", myAL[i]));
             }
 
            
