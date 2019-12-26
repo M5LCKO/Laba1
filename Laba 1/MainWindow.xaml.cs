@@ -586,11 +586,6 @@ namespace Laba_1
                 }
             }
         }
-        private void Button_Click_21(object sender, RoutedEventArgs e)
-        {
-            lbMain.Items.Clear();
-            lbMain.Items.Add(String.Format("Привет))))\n зря ты нажал эту кнопку\n через 5 минут смерть комплюктера"));
-        }
 
         private void Button_Click_23(object sender, RoutedEventArgs e)
         {
