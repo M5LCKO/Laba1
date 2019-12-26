@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Window1" Height="180" Width="227" MinHeight="180" MinWidth="227" MaxHeight="180" MaxWidth="227">
     <Grid Margin="0,0,3.8,3.6">
-        <Label Content="Введите число больше нуля" HorizontalAlignment="Left" Margin="22,31,0,0" VerticalAlignment="Top"/>
+        <Label Name="Label1" Content="Введите число больше нуля" HorizontalAlignment="Left" Margin="22,31,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="num"  HorizontalAlignment="Left" Height="20" Margin="49,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AllowDrop="False" MaxLength="3" />
         
         <Button Content="Далее" HorizontalAlignment="Left" Margin="112,112,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="Button_Click"/>

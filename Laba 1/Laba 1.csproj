@@ -93,6 +93,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="abs.cs" />
     <Compile Include="gen.cs" />
     <Compile Include="SpaseBall.cs" />
     <Compile Include="Window1.xaml.cs">
